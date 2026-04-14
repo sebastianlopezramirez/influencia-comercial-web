@@ -1,0 +1,723 @@
+/* HTML scroll suave */
+html {
+    scroll-behavior: smooth; /* Esto hace que la página se deslice con elegancia */
+}
+
+
+/* base de la pagina*/
+* {
+    margin: 0; /* Quita el espacio exterior que los navegadores traen por defecto */
+    padding: 0; /* Quita el espacio interior por defecto */
+    box-sizing: border-box; /* Evita que los rellenos aumenten el tamaño real de los elementos */
+}
+
+/* base del body */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: #001122; /* Azul marino profundo original */
+    color: #ffffff;
+    margin: 0;
+    padding: 0;
+}
+
+
+
+/* Eliminamos cualquier rastro del difuminado anterior */
+body::before {
+    display: none;
+    content: none;
+}
+
+/* estilo MAIN ----------------------------------------------------------------------------------------------------------------*/
+main {
+    background-color: #001b36; /* Azul profundo de la marca */
+    padding: 100px 5%;
+    width: 100%;
+    overflow: hidden;
+}
+
+/* Unificación de secciones con color sólido */
+main, .seccion-servicios, .referencias {
+    background-color: #001b36;
+    padding: 60px 5%;
+    width: 100%;
+}
+
+/* header uso flexbox para organizar todas los espacios*/
+.main-header {
+    display: flex; /* Convierte el header en un contenedor flexible */
+    justify-content: space-between; /* Empuja el logo a la izquierda y el botón a la derecha */
+    align-items: center; /* Centra todo verticalmente para que el botón no quede más arriba que el logo */
+    padding: 5px 2%; /* Da aire: 15px arriba/abajo y 5% a los costados */
+    border-bottom: 3px solid #d4af37; /* La línea dorada que separa el menú del resto */
+    /*position: sticky; /* El menú se queda pegado arriba aunque bajes en la página */
+    top: 0; /* Indica que se pegue justo al inicio (0 píxeles) */
+    background-color: #001122; /* azulde la marca para el fondo del nav*/
+    width: 100%; /* el ancho se ajuste para no deformar la iamgen */
+}
+
+
+
+/* HOME APARIENCIA FUTURISTA CON PSUDONIMO */
+#home::after {
+    content: ""; /* Crea la capa invisible */
+    position: absolute; /* Permite mover la línea libremente sobre la sección */
+    bottom: 0; /* La pega justo al suelo de la sección */
+    left: 10%; /* Deja un 10% de espacio a la izquierda */
+    width: 80%; /* La línea mide el 80% del ancho (se ve más elegante) */
+    height: 2px; /* Es una línea muy delgadita */
+    background: linear-gradient(to right, transparent 0%, #d4af37 30%, #ffffff 50%, #d4af37 70%, transparent 100% );
+    box-shadow: 0 0 15px 2px rgba(212, 175, 55, 0.7);
+    border-radius: 2px;
+}
+
+#home, #b2b, #b2c {
+    scroll-margin-top: 100px; /* Esto hace que el título se vea perfecto al navegar */
+}
+
+/* titulo qeu encabeza el tridente */
+/*.titulo-principal-home {
+/*    flex: 0 0 100%; /* obliga al titulo a ocupar todo el ancho superior*/
+/*    text-align: center;
+/*    color: #fecb08; /* dorado de titulo de la marca */
+/*    margin-bottom: 40px; /* espacio antes de los articulos*/
+/*    letter-spacing: 2px;
+    font-size: 2.5rem;
+    width: 100%;
+}
+*/
+
+/* ESTILO UNIFICADO PARA TODOS LOS TÍTULOS DE SECCIÓN ---------------------------------------------------------------------------*/
+.triangulo-articulos h2,
+.header-b2b h2,
+.header-b2c h2, .referencias h5 {
+    flex: 0 0 100%; /* Asegura que ocupe todo el ancho en el home */
+    width: 100%;
+    text-align: center;
+    color: #fecb05; /* Dorado brillante unificado */
+    font-size: 2.5rem; /* Tamaño unificado */
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 40px; /* Espacio estándar hacia abajo */
+    margin-top: 0;
+}
+
+
+/* SECCION 3 ARTICULOS EL TRIANGULO */
+.triangulo-articulos {
+    display: flex; /* los tres articulos iran alineados horizontalmente*/
+    justify-content: center; /* alinear los tres articulos en el centro*/
+    align-items: stretch; /* que los 3 espacios sean iguales */
+    gap: 30px; /* espacio entre articulos*/
+    max-width: 1200px; /*centra toda la seccion*/
+    margin: 0 auto;
+    position: relative; /* para que la linea sepa donde ponerse*/
+    padding-bottom: 80px; /*deja espacio para que la linea respire*/
+    flex-wrap:wrap; /* permite que el titulo este arriba y no se amontone*/
+}
+
+/* estilo de cada articulo*/
+    .triangulo-articulos article {
+        flex: 1; /* Las 3 tarjetas ocupan el mismo ancho */
+        background: rgba(255, 255, 255, 0.03); /* Fondo sutilmente más claro que el azul */
+        padding: 40px 25px;
+        border-radius: 15px;
+        border: 1px solid rgba(212, 175, 55, 0.2); /* Borde dorado suave */
+        text-align: center;
+        transition: all 0.4s ease; /* Para que el hover sea suave */
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between; /* Alinea el contenido y la imagen */
+    }
+
+        /* Efecto al pasar el mouse */
+        .triangulo-articulos article:hover {
+            transform: translateY(-10px); /* Igualamos la altura de elevación */
+            border-color: #d4af37;
+            background: rgba(212, 175, 55, 0.05);
+        }
+
+
+    /* EL TÍTULO: Debe ocupar todo el ancho y ser el primero */
+    .triangulo-articulos h2 {
+        flex: 0 0 100%; /* Obliga al título a medir el 100% del ancho */
+        text-align: center;
+        color: #d4af37;
+        font-size: 2.5rem; /* Tamaño jerárquico */
+        margin-bottom: 50px;
+        font-weight: 800;
+        /*text-transform: uppercase;*/
+        order: -1; /* Asegura que siempre esté al principio de la caja flex */
+    }
+
+    /* TÍTULOS Y TEXTO */
+    .triangulo-articulos h3 {
+        color: #d4af37; /* Dorado brillante */
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+        /*text-transform: uppercase;*/
+        letter-spacing: 1px;
+    }
+
+    .triangulo-articulos p {
+        color: #e0e0e0; /* Blanco grisáceo para no cansar la vista */
+        font-size: 1.05rem;
+        line-height: 1.6;
+        margin-bottom: 30px;
+        text-align: justify; /* Justifica el contenido del tridente */
+        padding: 0 5px;
+        hyphens: auto; /* Corta palabras con guiones si es necesario */
+    }
+
+    /* LAS IMÁGENES DENTRO DE LOS ARTÍCULOS */
+    .triangulo-articulos img {
+        width: 100%; /* Se adapta al ancho de la tarjeta */
+        height: 200px; /* Altura fija para que todas se vean iguales */
+        object-fit: cover; /* Recorta la imagen para que no se deforme */
+        border-radius: 8px;
+        border: 1px solid rgba(212, 175, 55, 0.1);
+    }
+
+/* RESPONSIVE (Para celulares) */
+@media (max-width: 768px) {
+    .triangulo-articulos {
+        flex-direction: column; /* En celular, las tarjetas se ponen una debajo de otra */
+    }
+}
+
+
+
+
+/*header nav de forma horizontal NAV --------------------------------------------------------------------------------------------*/
+.nav-header {
+    /*flex:1;/* el menuocupa el espacio central*/
+    display: flex; /* horizontalidad en los elementos de todo el nav*/
+    align-items: center; /*centra el texto verticalmente con respecto al logo*/
+    gap: 10px; /* espacio entre elementos*/
+    font-size:20px ; /* tamaño del texto*/
+
+}
+
+.nav-header ul {
+    display: flex; /*linea clav para hacerlo horizontal*/
+    list-style: none; /*quita los puntos negros*/
+    gap: 30px; /*da espacio entre cada palabra*/
+    margin: 0; /* margenes de cada elemento del nav*/
+    padding: 0; /* espacio entre su contenido y su borde */
+    text-align:center;
+}
+
+/* estilo para los enlases a del nav */
+.nav-header a {
+    color:white; /* color del texto de cada enlase */
+    text-decoration: none;/*texto limpio sin liena debajo  */
+    font-weight: bold;/* texto con negrita gruesa*/
+    font-size: 20px; /* tamaño de la letra*/
+    text-align: center;
+}
+
+/* boton whtasapp y diagnostico nav*/
+/* --- ESTILO BASE PARA LOS ENLACES (Lo que los hace parecer botones) --- */
+.btn-whatsapp, .btn-diagnostico {
+    display: inline-flex; /* Permite que el enlace tenga dimensiones (ancho/alto) y centrar su contenido. */
+    align-items: center; /* Centra el texto verticalmente dentro del botón. */
+    justify-content: center; /* Centra el texto horizontalmente dentro del botón. */
+    text-align: center; /* Asegura el centrado si el texto tiene varias líneas (como en Diagnóstico). */
+    text-decoration: none; /* Elimina el subrayado clásico de los enlaces. */
+    color: white; /* Define que el texto siempre sea blanco para resaltar. */
+    border-radius: 50px; /* Crea la forma de "cápsula" redondeada. */
+    font-weight: bold; /* Hace que el texto sea más grueso y legible. */
+    transition: 0.3s ease; /* Suaviza cualquier cambio visual (como al pasar el mouse). */
+    white-space: nowrap; /* Evita que las palabras se corten o se amontonen de forma extraña. */
+}
+
+/* --- CONTENEDOR PADRE --- */
+.header-buton-whatsapp {
+    display: flex; /* Crea un eje horizontal para poner los botones uno al lado del otro. */
+    align-items: center; /* Centra los botones verticalmente con respecto al logo y al menú. */
+    gap: 12px; /* Define una separación exacta de 12px entre los dos botones. */
+    flex-shrink: 0; /* Impide que los botones se deformen si el menú se queda sin espacio. */
+}
+.btn-whatsapp:hover, .btn-diagnostico {
+    transform: translateY(-2px); /* Mueve el botón 2 píxeles hacia arriba (efecto de presionado) */
+}
+
+    /* --- 6. EFECTOS HOVER (Para ambos) --- */
+    .btn-whatsapp:hover, .btn-diagnostico:hover {
+        transform: translateY(-3px); /* Mueve el botón hacia arriba 3 píxeles simulando que flota. */
+        filter: brightness(1.1); /* Aclara un poco el color para dar feedback visual. */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4); /* Aumenta la sombra para reforzar la profundidad. */
+    }
+/* --- ESTILO ESPECÍFICO DEL BOTÓN DE DIAGNÓSTICO --- */
+.btn-diagnostico {
+    background-color: #001b36; /* Aplica el color dorado de tu marca para diferenciarlo del verde. */
+    padding: 8px 18px; /* Espacio interno: 8px arriba/abajo y 18px a los lados. */
+    font-size: 16px; /* Tamaño de letra ligeramente menor para que quepa el texto largo. */
+    line-height: 1.2; /* Controla el espacio entre las dos líneas de texto. */
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); /* Crea un resplandor dorado suave en la base. */
+    color: white;
+}
+
+.btn-whatsapp {
+    background-color: #05fc28; /* Aplica el color dorado de tu marca para diferenciarlo del verde. */
+    padding: 18px 38px; /* Espacio interno: 8px arriba/abajo y 18px a los lados. */
+    font-size: 16px; /* Tamaño de letra ligeramente menor para que quepa el texto largo. */
+    line-height: 1.2; /* Controla el espacio entre las dos líneas de texto. */
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3); /* Crea un resplandor dorado suave en la base. */
+    color:black;
+}
+
+
+/* logo header HEADER --------------------------------------------------------------------------------------------------------------- */
+.logo-header {
+    flex:0 0 auto; /* esto obliga al contenedro del logo a empujar el menu al a derecha*/
+    display: flex;
+    justify-content: flex-start; /*asegura el logo pegado a la izquierda */
+    margin-left: -2%; /*truco: un margen negativo para pegarlo mas al borde izquierdo*/
+}
+
+/*logo img header*/
+.logo-header img {
+    height: 90px; /* Esto controla el alto. Puedes subirlo a 80px si lo quieres más grande */
+    width: auto; /* Esto hace que el ancho se ajuste solo para no deformar el logo */
+    display: block; /* Quita un espacio pequeño que los navegadores ponen debajo de las imágenes */
+    filter: drop-shadow(0 0 10px rgba(212,175,55,0.3)); /*brillo dorado al logo */
+    transition: transform 0.3s ease; /*apariencia cuando paso el mause por encima*/
+}
+
+.logo-header img:hover {
+    transform: scale(1.05); /* Efecto interactivo al pasar el mouse */
+}
+
+
+
+/*SECCION SERVICIOS------------------------------------------------------------------------------------------------------------*/
+.seccion-servicios {
+    background-color: #001b36; /*color fondo de toda la seccion*/
+    padding-top:40px ; /*espacio sutil despues del tricente*/
+    display: flex; /* activa flexbox para organizar los bloques hijos*/
+    flex-direction: column; /*alinea los bloques*/
+    gap: 80px; /*separacion entre los dos bloques*/
+}
+
+/*ESTILOS encabezados de servicios*/
+
+.header-b2b, .header-b2c {
+    text-align: center; /* alinea los textos en el centro (titulos , parrafos etc)*/
+    margin-bottom: 50px; /* separa el encabezado de las tarjetas de servicios*/
+}
+
+/*   .header-b2b h2, .header-b2c h2 {
+        color: #fecb08; /* aplica el dorado a los titulos h2 */
+/*        font-size: 2.5rem; /* tamaños de la letra grande y jerarquico*/
+/*        margin-bottom: 40px; /* espacio entre el titulo h2 y el parrafo*/
+        /*text-transform: uppercase; /* convierte todo el tecto en mayusculas*/
+/*        width: 100%;
+
+    }
+*/
+.header-b2b p, .header-b2c p {
+    color: #ffffff; /* texto en balnco */
+    font-size: 1.8rem; /*tamaño de la lectura comodo*/
+    max-width: 800px; /*evita qeu las lineas de texto  sean demaciado largas y no se puedan leer*/
+    margin: 0 auto; /*centra el bloque de texto si es mas corto que el contenedor*/
+}
+
+/* GRID B2B */
+.servicios-b2b-grid {
+    display: flex; /* alinea las 3 tarjetas de forma horizontal*/
+    gap: 30px ; /* espacio de 30px entre las tarjetas*/
+    list-style: none; /* quita los puntos negros pro defecto de la etiqueta*/
+    padding: 0; /* elimina el espacio interior que traen por defecto las listas*/
+
+}
+
+.servicios-b2b-grid li {
+    flex: 1; /* obliga a las 3 tarjetas a medir lo mismo */
+    background: rgba(255, 255, 255, 0.03); /* fondo balnco opaco casi invisible*/
+    padding: 40px 25px; /* espacio interno para que el texto no toque los bordes*/
+    border-radius: 20px; /* redonde las esquinas de las tarjetas*/
+    border: 1px solid rgba(212,175,55,0.2); /* borde dorado sutil y elegante*/
+    text-align: center; /* centra el contenido dentro de la ttarjeta*/
+    transition: 0.4s; /*duracion de la animacion cuando el mouse pasa por encima de el*/
+}
+
+    .servicios-b2b-grid li:hover {
+        border-color: #d4af37; /* Al pasar el mouse, el borde se vuelve dorado intenso */
+        transform: translateY(-10px); /* La tarjeta sube 10px dando efecto de "flotación" */
+        background: rgba(212, 175, 55, 0.05); /* El fondo se ilumina ligeramente en dorado */
+    }
+
+    .servicios-b2b-grid h4 {
+        color: #d4af37; /* Color dorado para los nombres de los servicios (Selección, etc.) */
+        font-size: 1.4rem; /* Tamaño mediano para resaltar el nombre del servicio */
+        margin-bottom: 15px; /* Espacio antes de la descripción */
+        
+    }
+
+    .servicios-b2b-grid p {
+        color: #e0e0e0; /* Gris claro para la descripción (menos peso visual que el título) */
+        font-size: 1rem; /* Tamaño estándar de lectura */
+        line-height: 1.5; /* Espacio entre renglones para que no se vea apretado el texto */
+        text-align: justify; /* justificar parrafos*/
+    }
+
+/* --- GRID B2C (Estructura de Personas) --- */
+
+
+.lista-b2c {
+    display: flex; /* Alinea el Escape Room y Redes Sociales de forma horizontal */
+    gap: 30px; /* Espacio entre los dos bloques B2C */
+    list-style: none; /* Limpieza de lista */
+    padding: 0; /* Limpieza de espacio */
+    
+}
+
+.lista-b2c li {
+    flex: 1; /* Ambas tarjetas ocupan el 50% del ancho */
+    /* Crea un degradado desde un dorado oscuro hasta el azul de fondo */
+    background: linear-gradient(145deg, rgba(212, 175, 55, 0.1), rgba(0, 27, 54, 1));
+    padding: 40px; /* Mucho aire interno para resaltar la importancia */
+    border-radius: 20px; /* Esquinas más redondeadas que el B2B para suavizar el diseño */
+    border: 1px solid #d4af37; /* Borde dorado sólido para que "brille" más que los de arriba */
+    transition: 0.4s; /* pasando el mause por ensima*/
+}
+
+    /* Este es el disparador que activa la transición */
+    .lista-b2c li:hover {
+        transform: translateY(-10px); /* La tarjeta sube suavemente */
+        border-color: #ffffff; /* El borde cambia a blanco */
+        box-shadow: 0 10px 20px rgba(212, 175, 55, 0.3); /* Sombra dorada */
+    }
+
+    .lista-b2c h4 {
+        color: #d4af37; /* Dorado para títulos B2C */
+        font-size: 1.8rem; /* Títulos más grandes para llamar la atención del público individual */
+        margin-bottom: 20px; /* Espacio inferior */
+        text-align: center; /* texto alineado en el centro */
+    }
+
+    .lista-b2c p {
+        color: #ffffff; /* Texto blanco para mayor claridad */
+        line-height: 1.7; /* Mayor espacio entre renglones para textos largos descriptivos */
+        margin-bottom: 15px; /* Espacio entre los párrafos del Escape Room */
+    }
+
+/* --- RESPONSIVE (Adaptación a Celulares) --- */
+@media (max-width: 900px) {
+    .servicios-b2b-grid, .lista-b2c {
+        flex-direction: column; /* En pantallas pequeñas, las tarjetas se apilan verticalmente */
+    }
+}
+
+/* BOTONOES DE ACCION H2 EN AMBAS SECCIONES B2B Y B2C*/
+/* Contenedor para alinear H2 y Botón */
+.titulo-con-boton {
+    display: flex;
+    justify-content: center; /* Centra ambos elementos */
+    align-items: center; /* Los alinea verticalmente */
+    gap: 20px; /* Espacio entre el título y el botón */
+    margin-bottom: 15px;
+    flex-wrap: wrap; /* Si el nombre es muy largo, el botón baja en celular */
+}
+
+/* Estilo del botón verde de WhatsApp al lado del H2 */
+.btn-directo-ws {
+    background-color: #25d366; /* Verde WhatsApp */
+    color: white !important; /* Texto blanco */
+    text-decoration: none; /* Quita el subrayado */
+    padding: 8px 18px; /* Tamaño del botón */
+    border-radius: 50px; /* Forma de cápsula */
+    font-size: 0.9rem; /* Un poco más pequeño que el H2 */
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.3s ease;
+    box-shadow: 0 4px 10px rgba(37, 211, 102, 0.2);
+}
+
+    .btn-directo-ws span {
+        font-size: 2.1rem;
+    }
+
+    .btn-directo-ws:hover {
+        transform: scale(1.05); /* Crece un poquito al pasar el mouse */
+        background-color: #1ebe57; /* Un verde un poco más oscuro al hacer hover */
+        box-shadow: 0 6px 15px rgba(37, 211, 102, 0.4);
+    }
+
+/* Ajuste para que el H2 no tenga el margen de abajo solo, sino que lo use el contenedor */
+.header-b2b h2, .header-b2c h2 {
+    margin-bottom: 0 !important;
+}
+
+/* REGLAS PARA LAS IMAGENES DE TODAS LAS TARJETAS ------------------------------------------------------------------------------------------------*/
+/* Seleccionamos todas las imágenes de las tarjetas (Home, B2B y B2C) */
+.triangulo-articulos img,
+.servicios-b2b-grid img,
+.lista-b2c img {
+    width: 100% !important; /* Obliga a la imagen a ocupar todo el ancho disponible. */
+    height: 220px !important; /* Define una altura fija idéntica para todas las fotos. */
+    object-fit: cover !important; /* Recorta la imagen para que llene el espacio sin estirarse. */
+    border-radius: 12px !important; /* Redondea las esquinas para que se vean modernas. */
+    margin-top: auto !important; /* Empuja la imagen hacia abajo si el texto de arriba es corto. */
+    display: block !important; /* Asegura que la imagen se comporte como un bloque sólido. */
+}
+
+/* Ajustamos las tarjetas para que todas crezcan igual y alineen la imagen al fondo */
+.triangulo-articulos article,
+.servicios-b2b-grid li,
+.lista-b2c li {
+    display: flex !important; /* Activa el modo flexible para organizar el contenido. */
+    flex-direction: column !important; /* Pone el título, el texto y la foto uno bajo otro. */
+    justify-content: space-between !important; /* Separa el texto de la imagen, dejándola al fondo. */
+    min-height: 480px !important; /* Establece una altura mínima para que las tarjetas no se vean desiguales. */
+    transition: all 0.4s ease !important; /* Asegura que cualquier movimiento sea suave. */
+}
+
+/* Unificamos el comportamiento de los textos dentro de las tarjetas */
+.triangulo-articulos p,
+.servicios-b2b-grid p,
+.lista-b2c p, .referencias p {
+    margin-bottom: 20px !important; /* Da un espacio constante entre el párrafo y la imagen. */
+    flex-grow: 1 !important; /* Permite que el texto ocupe el espacio necesario antes de la foto. */
+
+   
+}
+
+
+
+/*ESTILOS CSS PARA PAGINA COTIZACION.HTML*/
+
+/* contenedor pagina*/
+.contenedor-venta {
+    max-width: 1000px; /* No deja que la página se estire más de 1000px para que no se vea desordenada. */
+    margin: 0 auto; /* Centra todo el bloque en el medio de la pantalla. */
+    padding: 120px 20px; /* Da aire: 120px arriba/abajo para no chocar con el menú y 20px a los lados. */
+    text-align: center; /* Alinea todos los textos y botones al centro. */
+}
+
+/* TITULOS Y TEXTOS */
+.titulo-seccion-venta {
+    font-size: 3rem; /* Tamaño de letra grande e impactante para el encabezado. */
+    margin-bottom: 25px; /* Espacio de separación con lo que sigue abajo. */
+    line-height: 1.2; /* Controla el espacio entre renglones para que no se amontonen las letras. */
+    color: white; /* Color de letra blanco para que resalte sobre el fondo oscuro. */
+}
+
+.texto-resaltado-amarillo {
+    color: #fccb00; /* Es el color "oro" de tu marca para resaltar palabras clave. */
+}
+
+.descripcion-venta {
+    font-size: 1.3rem; /* Tamaño de letra mediano, fácil de leer. */
+    max-width: 700px; /* El párrafo no será muy ancho para que la vista no se canse al leer. */
+    margin: 0 auto 40px auto; /* Centra el párrafo y le da 40px de espacio abajo. */
+    color: #e0e0e0; /* Un gris clarito para que no canse tanto como el blanco puro. */
+    line-height: 1.6; /* Más espacio entre renglones para mejorar la lectura. */
+}
+
+/* BOTON ACCION*/
+.btn-accion-amarillo {
+    display: inline-block; /* Permite que el botón tenga tamaño y márgenes correctos. */
+    background-color: #fccb00 !important; /* Fondo amarillo (el !important asegura que no cambie). */
+    color: #000a12 !important; /* Letras casi negras para que se lean perfecto sobre el amarillo. */
+    padding: 15px 35px; /* Tamaño interno del botón (lo hace gordito y profesional). */
+    border-radius: 50px; /* Puntas totalmente redondeadas. */
+    font-weight: bold; /* Letra en negrita. */
+    font-size: 1.2rem; /* Tamaño de letra del botón. */
+    text-decoration: none; /* Quita el subrayado típico de los enlaces. */
+    transition: all 0.3s ease; /* Hace que los cambios (como el hover) sean suaves, no bruscos. */
+    box-shadow: 0 4px 15px rgba(252, 203, 0, 0.3); /* Una sombra suave amarilla para dar profundidad. */
+    border: none; /* Quita cualquier borde automático. */
+}
+
+    .btn-accion-amarillo:hover {
+        transform: translateY(-3px); /* Al pasar el mouse, el botón "salta" 3 píxeles hacia arriba. */
+        filter: brightness(1.1); /* El botón se ilumina un poco más al tocarlo. */
+        box-shadow: 0 6px 20px rgba(252, 203, 0, 0.5); /* La sombra crece cuando el botón "sube". */
+    }
+
+    /* SECCION PROBLEMAS LAS X ROJAS*/
+.seccion-problemas {
+    margin: 80px 0; /* Espacio de 80px arriba y abajo de esta sección. */
+    background: rgba(255, 255, 255, 0.02); /* Un fondo blanco casi invisible para dar textura. */
+    padding: 60px 30px; /* Espacio interno para que el contenido no toque los bordes. */
+    border-radius: 20px; /* Esquinas redondeadas de la caja. */
+    border: 1px solid rgba(252, 203, 0, 0.1); /* Un borde muy finito y sutil de color amarillo. */
+}
+
+.grilla-problemas {
+    display: grid; /* Activa el modo "rejilla". */
+    grid-template-columns: repeat(3, 1fr); /* Divide el espacio en 3 columnas exactamente iguales. */
+    gap: 25px; /* Espacio de separación entre cada cuadrito de la rejilla. */
+    text-align: left; /* Aquí el texto sí va alineado a la izquierda. */
+    margin-bottom: 50px; /* Espacio abajo antes del siguiente elemento. */
+}
+
+.item-problema {
+    display: flex; /* Alinea la "X" y el texto en la misma línea. */
+    align-items: center; /* Centra la "X" verticalmente con el texto. */
+    gap: 15px; /* Separación entre la "X" y la frase. */
+    color: white; /* Color de texto blanco. */
+}
+
+.icono-x {
+    color: #ff4d4d; /* Color rojo llamativo para las "X". */
+    font-weight: bold; /* Hace la "X" más gruesa. */
+}
+
+/* TARJETAS DIAGNOSTICO*/
+.grilla-diagnostico {
+    display: grid; /* Otra rejilla para las tarjetas con foto. */
+    grid-template-columns: repeat(3, 1fr); /* También en 3 columnas. */
+    gap: 30px; /* Un poco más de espacio entre tarjetas. */
+    margin: 60px 0; /* Espacio arriba y abajo de la grilla. */
+}
+
+.tarjeta-diagnostico {
+    background: #000a12; /* Fondo azul muy oscuro (casi negro). */
+    padding: 30px; /* Aire dentro de la tarjeta. */
+    border-radius: 15px; /* Esquinas suavizadas. */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde gris muy suave. */
+    text-align: left; /* Texto alineado a la izquierda. */
+}
+
+    .tarjeta-diagnostico img {
+        width: 100%; /* La foto ocupa todo el ancho de la tarjeta. */
+        height: 180px; /* Altura fija para que todas las fotos se vean iguales. */
+        object-fit: cover; /* Si la foto es más grande, la corta para que no se estire. */
+        border-radius: 8px; /* Esquinas de la foto redondeadas. */
+        margin: 20px 0; /* Espacio arriba y abajo de la imagen. */
+    }
+
+
+/* FINAL ADAPTACION A MOVILES*/
+.contenedor-formulario-final {
+    margin-top: 100px; /* Separa el formulario de lo anterior por 100px. */
+    padding: 50px; /* Espacio dentro del cuadro del formulario. */
+    border: 2px solid #fccb00; /* Un borde amarillo grueso para resaltar el objetivo final. */
+    border-radius: 20px; /* Esquinas redondeadas. */
+    background: rgba(0,0,0,0.3); /* Fondo oscuro semi-transparente. */
+}
+
+@media (max-width: 768px) { /* "Si la pantalla es menor a 768px (como un celular)..." */
+    .grilla-problemas, .grilla-diagnostico {
+        grid-template-columns: 1fr; /* Cambia las 3 columnas por 1 sola para que se lea bien. */
+    }
+}
+
+/* ESTILO imagen referencias comerciales */
+/* Contenedor de la sección de referencias */
+.referencias {
+    width: 100%; /* Ocupa el 100% del ancho disponible */
+    overflow: hidden; /* Corta cualquier excedente si la imagen es muy grande */
+    padding: 80px 0; /* Espacio arriba y abajo */
+    background-color: #001b36; /* Fondo blanco para que resalten los logos */
+    text-align: center;
+}
+
+    /* Control específico de la imagen de logos */
+    .referencias img {
+        width: 100%; /* Obliga a la imagen a estirarse al ancho total */
+        height: 100px; /* AQUÍ CONTROLAS LA ALTURA: ajústalo a tu gusto (ej. 60px o 100px) */
+        display: block; /* Elimina espacios vacíos debajo de la imagen */
+        margin: 0 auto; /* Centra la imagen */
+    }
+
+    /* Nueva regla para el párrafo de referencias */
+    .referencias p {
+        color: #ffffff; /* texto en balnco */
+        font-size: 1.8rem; /*tamaño de la lectura comodo*/
+        max-width: 800px; /*evita qeu las lineas de texto  sean demaciado largas y no se puedan leer*/
+        margin: 0 auto; /*centra el bloque de texto si es mas corto que el contenedor*/
+    }
+
+/* FOOTER ----------------------------------------------------*/
+/* FOOTER - ESTILO FINAL UNIFICADO */
+.main-footer {
+    background-color: #001122;
+    padding: 60px 5% 20px;
+    border-top: 2px solid #d4af37; /* Línea dorada superior */
+    color: white;
+}
+
+.contenedor-footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 250px;
+}
+
+    .footer-column h3 {
+        color: #d4af37;
+        margin-bottom: 20px;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+    }
+
+    /* Limpieza de la lista de navegación */
+    .footer-column ul {
+        list-style: none;
+        padding: 0;
+    }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+    .footer-column a {
+        color: #e0e0e0;
+        text-decoration: none;
+        transition: 0.3s ease;
+    }
+
+        .footer-column a:hover {
+            color: #ffffff;
+            padding-left: 5px;
+        }
+
+/* Estilo para el logo en el footer */
+.footer-logo {
+    max-width: 200px !important;
+    height: auto !important;
+    margin-bottom: 50px;
+    display: block;
+    filter: drop-shadow(0 0 8px rgba(212, 175, 55, 0.3));
+}
+
+/* Reset de address para que no salga en cursiva */
+address {
+    font-style: normal;
+    line-height: 1.6;
+    color: #e0e0e0;
+}
+
+/* Barra inferior de Copyright */
+.footer-bottom {
+    text-align: center;
+    margin-top: 50px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.9rem;
+    color: #888;
+}
+
+/* Estilo específico para el logo del footer */
+.footer-column img {
+    height: 100px; /* Ajusta este valor según tu gusto (entre 60px y 80px es lo ideal) */1
+    width: auto; /* Mantiene la proporción para que no se vea estirado */
+    margin-bottom: 20px; /* Separa el logo del párrafo de abajo */
+    filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.2)); /* Un brillo dorado sutil */
+    display: block; /* Asegura que el margen funcione correctamente */
+}
