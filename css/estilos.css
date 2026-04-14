@@ -721,3 +721,232 @@ address {
     filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.2)); /* Un brillo dorado sutil */
     display: block; /* Asegura que el margen funcione correctamente */
 }
+
+/* ESTILO DEL HOME CONVERSION */
+/* ============================================================
+   HERO PRINCIPAL - ABOVE THE FOLD
+   Estilos para la section de conversión principal
+============================================================ */
+
+/* Contenedor principal del hero - fondo azul oscuro como imagen */
+.hero-principal {
+    position: relative; /* Para posicionar elementos absolutos dentro */
+    display: flex; /* Layout flex: figura izquierda + contenido derecha */
+    align-items: center; /* Centrado vertical */
+    min-height: 100vh; /* Ocupa toda la pantalla inicial */
+    background-color: #0a1628; /* Azul oscuro profundo como en la referencia */
+    overflow: hidden; /* Evita desbordamiento de la figura */
+    padding: 40px 60px; /* Espaciado interno general */
+}
+
+/* Figura con la imagen de Frank Correa - lado izquierdo */
+.hero-figura {
+    flex: 0 0 45%; /* Ocupa 45% del ancho */
+    margin: 0; /* Sin margen extra */
+    position: relative; /* Posición normal en el flujo */
+    z-index: 1; /* Por encima del fondo */
+    display: flex; /* Flex para apilar nombre e imagen */
+    flex-direction: column; /* Nombre arriba, imagen abajo */
+    align-items: flex-start; /* Alineados a la izquierda */
+    align-self: stretch; /* Estira hasta el alto del hero */
+}
+
+    /* Imagen de Frank - grande, sin recuadro, con bordes desvanecidos */
+    .hero-figura img {
+        width: 100%; /* Ocupa todo el ancho de su contenedor */
+        height: 85vh; /* Alto generoso casi toda la pantalla */
+        object-fit: cover; /* Rellena sin deformar */
+        object-position: top center; /* Muestra la parte superior - cara y cuerpo */
+        display: block; /* Sin espacio extra debajo */
+        /* Desvanecer los 4 lados con máscara de gradiente */
+        -webkit-mask-image: linear-gradient( to right, transparent 0%, /* Lado izquierdo invisible */
+        black 20%, /* Aparece gradualmente */
+        black 80%, /* Centro completamente visible */
+        transparent 100% /* Lado derecho invisible */
+        ), linear-gradient( to bottom, transparent 0%, /* Borde superior invisible */
+        black 10%, /* Aparece rápido arriba */
+        black 85%, /* Cuerpo completamente visible */
+        transparent 100% /* Borde inferior invisible */
+        );
+        -webkit-mask-composite: destination-in; /* Combina ambas máscaras */
+        mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%), linear-gradient(to bottom, transparent 0%, black 10%, black 85%, transparent 100%);
+        mask-composite: intersect; /* Estándar: intersecta ambas máscaras */
+    }
+/* Contenido textual - lado derecho */
+.hero-contenido {
+    flex: 0 0 55%; /* Ocupa 55% del ancho */
+    padding-left: 40px; /* Separación respecto a la figura */
+    z-index: 2; /* Por encima del fondo */
+    color: #ffffff; /* Texto blanco por defecto */
+}
+
+/* Línea superior con nombre y título del experto */
+.hero-nombre-experto {
+    display: flex; /* En línea horizontal */
+    align-items: center; /* Centrado vertical */
+    gap: 12px; /* Separación entre elementos */
+    margin-bottom: 20px; /* Espacio debajo */
+    font-size: 0.95rem; /* Tamaño pequeño */
+}
+
+/* Nombre en cursiva dorada - "Frank Correa" */
+/* Nombre "Frank Correa" en cursiva dorada sobre la imagen */
+.hero-frank-nombre-sobre-imagen {
+    font-style: italic; /* Cursiva elegante */
+    color: #d4a843; /* Dorado */
+    font-size: 1.4rem; /* Tamaño visible */
+    font-weight: 400; /* Peso normal para cursiva fina */
+    margin-bottom: 10px; /* Espacio entre nombre e imagen */
+    padding-left: 10px; /* Leve sangría */
+    z-index: 2; /* Por encima de la imagen */
+}
+
+/* Separador vertical entre nombre y título */
+.hero-separador {
+    color: #d4a843; /* Dorado */
+    font-size: 1.2rem; /* Mismo tamaño */
+}
+
+/* Texto "EXPERTO EN INFLUENCIA COMERCIAL" */
+.hero-titulo-experto {
+    color: #ffffff; /* Blanco */
+    font-size: 0.8rem; /* Pequeño */
+    letter-spacing: 0.1em; /* Espaciado entre letras */
+    text-transform: uppercase; /* Mayúsculas */
+}
+
+/* H1 principal del hero */
+.hero-titulo-principal {
+    font-size: 3.2rem; /* Grande y dominante */
+    font-weight: 900; /* Muy negrita */
+    line-height: 1.1; /* Líneas compactas */
+    color: #ffffff; /* Blanco */
+    text-transform: uppercase; /* Todo mayúsculas */
+    margin-bottom: 20px; /* Espacio debajo */
+    letter-spacing: 0.02em; /* Leve espaciado */
+}
+
+/* Línea amarilla del H1 - "COMUNICACIÓN NO VERBAL" */
+.hero-titulo-amarillo {
+    color: #f5c518; /* Amarillo brillante */
+}
+
+/* Subtítulo descriptivo bajo el H1 */
+.hero-subtitulo {
+    font-size: 1rem; /* Tamaño normal */
+    color: #cccccc; /* Gris claro */
+    line-height: 1.6; /* Espaciado cómodo */
+    margin-bottom: 35px; /* Espacio antes del botón */
+    max-width: 480px; /* Limita el ancho para legibilidad */
+}
+
+/* Texto dorado dentro del subtítulo */
+.hero-texto-dorado {
+    color: #d4a843; /* Dorado */
+}
+
+/* ============================================================
+   BOTÓN PALPITANTE - CTA PRINCIPAL
+   Animación que llama la atención del usuario
+============================================================ */
+
+/* Botón CTA con efecto palpitante */
+.btn-hero-palpitante {
+    display: inline-flex; /* Flex para alinear icono y texto */
+    align-items: center; /* Centrado vertical */
+    gap: 10px; /* Espacio entre icono y texto */
+    background-color: #f5c518; /* Amarillo como en la imagen */
+    color: #0a1628; /* Azul oscuro - contraste alto */
+    font-size: 1rem; /* Tamaño legible */
+    font-weight: 700; /* Negrita */
+    text-decoration: none; /* Sin subrayado */
+    padding: 16px 32px; /* Espaciado interno generoso */
+    border-radius: 6px; /* Bordes levemente redondeados */
+    text-transform: uppercase; /* Mayúsculas */
+    letter-spacing: 0.05em; /* Espaciado entre letras */
+    margin-bottom: 50px; /* Espacio antes de los pilares */
+    animation: palpitar 1.8s ease-in-out infinite; /* Animación continua */
+}
+
+/* Definición de la animación palpitante */
+@keyframes palpitar {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(245, 197, 24, 0.6);
+    }
+    /* Estado normal */
+    50% {
+        transform: scale(1.04);
+        box-shadow: 0 0 0 12px rgba(245, 197, 24, 0);
+    }
+    /* Expandido */
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(245, 197, 24, 0);
+    }
+    /* Vuelve a normal */
+}
+
+/* Efecto hover sobre el botón - pausa la animación y oscurece */
+.btn-hero-palpitante:hover {
+    animation-play-state: paused; /* Pausa al pasar el mouse */
+    background-color: #d4a843; /* Dorado más oscuro */
+    transform: scale(1.05); /* Leve agrandamiento */
+}
+
+/* ============================================================
+   PILARES INFERIORES DEL HERO
+   Tres íconos con texto bajo el botón CTA
+============================================================ */
+
+/* Contenedor de los tres pilares */
+.hero-pilares {
+    display: flex; /* En fila horizontal */
+    gap: 30px; /* Separación entre pilares */
+    align-items: flex-start; /* Alineados desde arriba */
+}
+
+/* Cada pilar individual */
+.hero-pilar {
+    display: flex; /* Flex vertical */
+    flex-direction: column; /* Icono arriba, texto abajo */
+    align-items: center; /* Centrado horizontal */
+    text-align: center; /* Texto centrado */
+    gap: 8px; /* Espacio entre icono y texto */
+}
+
+/* Icono de cada pilar */
+.hero-pilar-icono {
+    font-size: 1.8rem; /* Tamaño visible del icono */
+    color: #d4a843; /* Dorado */
+}
+
+/* Texto de cada pilar */
+.hero-pilar p {
+    font-size: 0.72rem; /* Pequeño como en la referencia */
+    color: #aaaaaa; /* Gris claro */
+    text-transform: uppercase; /* Mayúsculas */
+    letter-spacing: 0.08em; /* Espaciado amplio */
+    line-height: 1.5; /* Espaciado entre líneas */
+    margin: 0; /* Sin margen extra */
+}
+
+    /* Texto en negrita dentro de cada pilar */
+    .hero-pilar p strong {
+        color: #ffffff; /* Blanco para el texto fuerte */
+    }
+
+/* Logo triangulo - esquina superior derecha */
+.hero-logo-triangulo {
+    position: absolute; /* Posición absoluta dentro del hero */
+    top: 30px; /* Desde arriba */
+    right: 40px; /* Desde la derecha */
+    margin: 0; /* Sin margen */
+    z-index: 3; /* Por encima de todo */
+}
+
+    /* Imagen del logo triangulo */
+    .hero-logo-triangulo img {
+        width: 120px; /* Tamaño del logo */
+        opacity: 0.9; /* Leve transparencia */
+    }

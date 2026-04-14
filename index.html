@@ -48,26 +48,102 @@
 
     <!--tridente o triangulo para captar el seo google ads dice mucho sobre el triangulo del logo -->
     <main>
-        <section id="home" class="triangulo-articulos">
-            <h2>Soluciones que convierten equipos en ganadores</h2>
-            <article class="que-hacemos">
-                <h3 class="texto-dorado-brillante">El Talento Correcto, en el Lugar Correcto.</h3>
-                <p>No busques solo vendedores; encuentra cerradores. Identificamos el ADN comercial que tu empresa necesita, asegurando que cada nueva contratación sea una inversión con retorno garantizado y no un gasto operativo.</p>
-                <img src="img/charla-motivacional-ventas.png" alt="imagen-transformando-equipos-comerciales" />
-            </article>
+        <!-- ============================================================
+             HERO PRINCIPAL - ABOVE THE FOLD
+             Section de conversión principal | SEO: contiene el H1
+             Diseño basado en imagen de referencia: fondo oscuro,
+             Frank Correa a la izquierda, texto hero a la derecha
+        ============================================================ -->
+        <section id="home" class="hero-principal" aria-label="Sección principal de conversión">
 
-            <article class="como-lo-hacemos">
-                <h3 class="texto-dorado-brillante">Entrenamiento de Élite para Equipos de Alto Impacto.</h3>
-                <p>Transformamos la teoría en ejecución real. Mediante neuro-ventas y persuasión avanzada, dotamos a tu equipo con las herramientas tácticas necesarias para dominar cada negociación y superar cualquier objeción.</p>
-                <img src="img/capacitacion-ventas.jpg" alt="escuela de influencia comercial - como lo hacemos" />
-            </article>
+            <!-- Imagen principal de Frank Correa - lado izquierdo -->
+            <figure class="hero-figura">
 
-            <article class="por-que">
-                <h3 class="texto-dorado-brillante">Estrategias que Dominan el Mercado.</h3>
-                <p>Rediseñamos tu proceso comercial desde la raíz. Acompañamos a tu organización en la creación de un discurso de ventas infalible y planes estratégicos que convierten puntos críticos en ventajas competitivas.</p>
-                <img src="img/capacitando-ventas.png" alt="imagen descriptiva del por que" />
-            </article>
+                <figcaption class="hero-frank-nombre-sobre-imagen">
+                    Frank Correa — Experto en Influencia Comercial
+                </figcaption><!-- figcaption oculto visualmente pero leído por Google y lectores de pantalla -->
+                <img src="img/frank-correa-experto-en-ventas.png"
+                     alt="Frank Correa, experto en influencia comercial y ventas, conferencista" />
+                <!-- Alt descriptivo mejora relevancia en Google Ads y SEO -->
+            </figure>
+
+            <!-- Contenido textual del hero - lado derecho -->
+            <article class="hero-contenido" aria-label="Propuesta de valor principal">
+                <!-- article porque es contenido independiente y significativo para Google -->
+                <!-- Identificador del experto - encabezado del article -->
+                <header class="hero-encabezado-experto">
+                    <!-- header dentro del article: contexto semántico del experto -->
+
+                    <p class="hero-nombre-experto">
+                        <span class="hero-nombre-cursiva">Frank Correa</span>
+                        <span class="hero-separador" aria-hidden="true">|</span>
+                        <!-- aria-hidden en el separador: no aporta info a lectores de pantalla -->
+                        <span class="hero-titulo-experto">EXPERTO EN <strong>INFLUENCIA COMERCIAL</strong></span>
+                    </p>
+
+                </header><!-- fin hero-encabezado-experto -->
+                <!-- H1 principal - foco SEO y conversión - único H1 de la página -->
+                <h1 class="hero-titulo-principal">
+                    CIERRA MÁS VENTAS<br />
+                    DOMINANDO LA<br />
+                    <span class="hero-titulo-amarillo">COMUNICACIÓN NO VERBAL</span>
+                </h1>
+
+                <!-- Subtítulo descriptivo - refuerza palabras clave para Google -->
+                <p class="hero-subtitulo">
+                    Entrenamos equipos comerciales para aumentar su tasa
+                    de cierre con <strong class="hero-texto-dorado">técnicas científicas de persuasión.</strong>
+                    <!-- strong en vez de span: le dice a Google que es texto importante -->
+                </p>
+
+                <!-- Botón CTA principal con animación palpitante -->
+                <a href="https://diagnosticocomercial-production.up.railway.app/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+               
+               class="btn-hero-palpitante"
+               aria-label="Realizar diagnóstico comercial gratuito - abre en nueva pestaña">
+               <!-- aria-label descriptivo mejora Quality Score en Google Ads -->
+                📅 ¡Realiza tu Diagnóstico GRATIS! →
+            </a>
+
+                <!-- Tres pilares - usando ol porque son items de valor ordenados -->
+                <ol class="hero-pilares" aria-label="Beneficios principales del programa">
+                    <!-- ol en vez de div: lista ordenada de beneficios, semántico para Google -->
+                    <!-- Pilar 1 -->
+                    <li class="hero-pilar">
+                        <span class="hero-pilar-icono" aria-hidden="true">👥</span>
+                        <p><span>ENTRENAMIENTO</span><br /><strong>PARA EQUIPOS</strong></p>
+                    </li>
+
+                    <!-- Pilar 2 -->
+                    <li class="hero-pilar">
+                        <span class="hero-pilar-icono" aria-hidden="true">🔬</span>
+                        <p><span>BASADO EN CIENCIA</span><br /><strong>Y COMPORTAMIENTO HUMANO</strong></p>
+                    </li>
+
+                    <!-- Pilar 3 -->
+                    <li class="hero-pilar">
+                        <span class="hero-pilar-icono" aria-hidden="true">📈</span>
+                        <p><span>MÁS CONFIANZA,</span><br /><strong>MÁS RESULTADOS</strong></p>
+                    </li>
+
+                </ol><!-- fin hero-pilares -->
+
+            </article><!-- fin hero-contenido -->
+            <!-- Logo triangulo esquina superior derecha -->
+            <figure class="hero-logo-triangulo" aria-hidden="true">
+                <!-- aria-hidden: el logo es decorativo aquí, no aporta info adicional -->
+                <img src="img/logo-brillante.png"
+                     alt=""
+                     role="presentation" />
+                <!-- alt vacío + role presentation: imagen decorativa, Google no la indexa como contenido -->
+            </figure>
+
         </section>
+        <!-- ============================================================
+         FIN HERO PRINCIPAL
+    ============================================================ -->
     </main>
 
     <section id="servicios" class="seccion-servicios">
